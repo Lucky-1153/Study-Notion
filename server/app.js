@@ -13,7 +13,7 @@ app.use(cookieParser())
 
 
 app.use( cors({
-    origin: "https://study-notion-client-k6hmvrtn9-lucky-1153s-projects.vercel.app",
+    origin: "https://study-notion-client-eight.vercel.app/",
     credentials: true,
     optionsSuccessStatus: 200
 }))
