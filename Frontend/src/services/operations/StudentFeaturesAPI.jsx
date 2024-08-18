@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 import { studentEndpoints } from "../apis";
 import { apiConnector } from "../apiConnector";
-import { ApiError } from "../../../server/utils/ApiError";
+
 import rzpLogo from '../../assets/Logo/rzp_logo.png'
 import {setPaymentLoading} from '../../slices/course.slice'
 import {resetCart} from '../../slices/cart.slice'
@@ -110,7 +110,7 @@ async function verifyPayment(bodyData, token, navigate, dispatch) {
         })
 
         if(!response.data.success){
-            throw new ApiError(444, response.data.message)
+            throw new Error( response.data.message)
         }
 
         toast.success("payment seccessfull, you are added to the course")
