@@ -14,7 +14,7 @@ app.use(cookieParser())
 
 app.use( cors({
     path: "*",
-    credentials: false,
+    credentials: true,
     optionsSuccessStatus: 200
 }))
 
@@ -42,6 +42,11 @@ app.use('/api/v1/course', courseRoutes)
 
 //============Default Route================================
 app.get('/', (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*")
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    res.setHeader("Access-Control-Max-Age", "1800");
+    res.setHeader("Access-Control-Allow-Headers", "content-type");
+    res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
     res.send('<div> this is default route <p> everything is okay </p> </div>')
 })
 
