@@ -12,7 +12,7 @@ const options = {
     httpOnly : true,
     secure: true,
     domain: "localhost",
-    sameSite: none
+    
 }
 
 const generateTokens = async(userId) => {
