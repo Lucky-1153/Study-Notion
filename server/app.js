@@ -13,7 +13,7 @@ app.use(cookieParser())
 
 
 app.use( cors({
-    path: "*",
+    path: "https://study-notion-client-eight.vercel.app/",
     credentials: true,
 }))
 
