@@ -14,7 +14,7 @@ app.use(cookieParser())
 
 app.use( cors({
     path: "*",
-    credentials: true,
+    credentials: false,
     optionsSuccessStatus: 200
 }))
 
