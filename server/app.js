@@ -87,9 +87,8 @@ app.use('/api/v1/course', courseRoutes)
 //============Default Route================================
 app.get('/', (req, res,next) => {
     
-     res
-         .status(200)
-         .send('<div> this is default route <p> everything is okay </p> </div>')
+
+         res.send('<div> this is default route <p> everything is okay </p> </div>')
     
     next();
    
