@@ -9,7 +9,7 @@ let app = express()
 
 app.use(express.json())
 // app.use(express.urlencoded())
-app.use(express.static("public"))
+
 app.use(cookieParser())
 
 const corsOptions = {
@@ -22,7 +22,7 @@ const corsOptions = {
 }
 // Use CORS with the defined options
 app.use(cors(corsOptions));
-
+app.use(express.static("public"))
 app.use(
     fileUpload({
         useTempFiles: true,
