@@ -11,7 +11,7 @@ import {passwordUpdated} from '../mail/templates/passwordUpdate.js'
 const options = {
     httpOnly : true,
     secure: true,
-    domain: "localhost",
+   
     sameSite: 'none',
 
 }
