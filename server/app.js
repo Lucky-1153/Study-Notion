@@ -17,9 +17,14 @@ app.use( cors({
     // credentials: true,
     optionsSuccessStatus: 200,
     origin: 'https://study-notion-client-eight.vercel.app', // allow requests from this origin
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // allow these methods
+  //methods: ['GET', 'POST', 'PUT', 'DELETE'], // allow these methods
   allowedHeaders: ['Content-Type', 'Authorization'], // allow these headers
   maxAge: 3600, // cache the response for 1 hour
+    "headers": {
+            "Access-Control-Allow-Origin": "https://study-notion-client-eight.vercel.app",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type, Authorization"
+          }
 }))
 
 app.use(
