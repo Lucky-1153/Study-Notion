@@ -11,36 +11,47 @@ app.use(express.json())
 app.use(express.static("public"))
 app.use(cookieParser())
 
-
-app.use( cors({
-    // origin: "https://study-notion-client-eight.vercel.app/",
-    // credentials: true,
-      
-      origin: 'https://study-notion-client-eight.vercel.app', // allow requests from this origin
+const corsOptions = {
+    origin: 'https://study-notion-client-eight.vercel.app', // allow requests from this origin
       methods: ['GET', 'POST', 'PUT', 'DELETE'], // allow these methods
       allowedHeaders: ['Content-Type', 'Authorization'], // allow these headers
       optionsSuccessStatus: 200,
-    // "headers": {
-    //         "Access-Control-Allow-Origin": "https://study-notion-client-eight.vercel.app",
-    //         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-    //         "Access-Control-Allow-Headers": "Content-Type, Authorization"
-    //       }
-}))
+}
+// Use CORS with the defined options
+app.use(cors(corsOptions));
 
-app.options('https://study-notion-client-eight.vercel.app', cors({
-    // origin: "https://study-notion-client-eight.vercel.app/",
-    // credentials: true,
+// Handle OPTIONS requests for all routes (preflight)
+app.options('*', cors(corsOptions));
+
+// app.use( cors({
+//     // origin: "https://study-notion-client-eight.vercel.app/",
+//     // credentials: true,
       
-      origin: 'https://study-notion-client-eight.vercel.app', // allow requests from this origin
-      methods: ['GET', 'POST', 'PUT', 'DELETE'], // allow these methods
-      allowedHeaders: ['Content-Type', 'Authorization'], // allow these headers
-      optionsSuccessStatus: 200,
-    // "headers": {
-    //         "Access-Control-Allow-Origin": "https://study-notion-client-eight.vercel.app",
-    //         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-    //         "Access-Control-Allow-Headers": "Content-Type, Authorization"
-    //       }
-}));
+//       origin: 'https://study-notion-client-eight.vercel.app', // allow requests from this origin
+//       methods: ['GET', 'POST', 'PUT', 'DELETE'], // allow these methods
+//       allowedHeaders: ['Content-Type', 'Authorization'], // allow these headers
+//       optionsSuccessStatus: 200,
+//     // "headers": {
+//     //         "Access-Control-Allow-Origin": "https://study-notion-client-eight.vercel.app",
+//     //         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+//     //         "Access-Control-Allow-Headers": "Content-Type, Authorization"
+//     //       }
+// }))
+
+// app.options('https://study-notion-client-eight.vercel.app', cors({
+//     // origin: "https://study-notion-client-eight.vercel.app/",
+//     // credentials: true,
+      
+//       origin: 'https://study-notion-client-eight.vercel.app', // allow requests from this origin
+//       methods: ['GET', 'POST', 'PUT', 'DELETE'], // allow these methods
+//       allowedHeaders: ['Content-Type', 'Authorization'], // allow these headers
+//       optionsSuccessStatus: 200,
+//     // "headers": {
+//     //         "Access-Control-Allow-Origin": "https://study-notion-client-eight.vercel.app",
+//     //         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+//     //         "Access-Control-Allow-Headers": "Content-Type, Authorization"
+//     //       }
+// }));
 
 app.use(
     fileUpload({
