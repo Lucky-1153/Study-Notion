@@ -12,7 +12,7 @@ app.use(express.static("public"))
 app.use(cookieParser())
 
 const corsOptions = {
-    origin: 'https://study-notion-client-nine.vercel.app', // allow requests from this origin
+    origin: 'https://study-notion-client-two.vercel.app', // allow requests from this origin
       methods: ['GET', 'POST', 'PUT', 'DELETE'], // allow these methods
       allowedHeaders: ['Content-Type', 'Authorization'], // allow these headers
        credentials: true,
@@ -23,10 +23,10 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Handle OPTIONS requests for all routes (preflight)
-app.options('https://study-notion-client-nine.vercel.app', (req, res) => {
+app.options('https://study-notion-client-two.vercel.app', (req, res) => {
     
     console.log('Handling OPTIONS request for:', req.path);
-    res.header('Access-Control-Allow-Origin', 'https://study-notion-client-nine.vercel.app');
+    res.header('Access-Control-Allow-Origin', 'https://study-notion-client-two.vercel.app');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.sendStatus(200); // Send 200 OK status
@@ -86,7 +86,7 @@ app.use('/api/v1/course', courseRoutes)
 
 //============Default Route================================
 app.get('/', (req, res,next) => {
-    res.header('Access-Control-Allow-Origin', 'https://study-notion-client-nine.vercel.app/');
+    res.header('Access-Control-Allow-Origin', 'https://study-notion-client-two.vercel.app');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
      res.send('<div> this is default route <p> everything is okay </p> </div>')
