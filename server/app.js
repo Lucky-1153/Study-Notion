@@ -21,7 +21,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Handle OPTIONS requests for all routes (preflight)
-app.options('*', cors(corsOptions));
+app.options('https://study-notion-client-eight.vercel.app', cors(corsOptions));
 
 // app.use( cors({
 //     // origin: "https://study-notion-client-eight.vercel.app/",
