@@ -14,7 +14,7 @@ app.use(cookieParser())
 
 const corsOptions = {
 
-    origin: "*", 
+    origin: "https://study-notion-frontend-2ib6.onrender.com", 
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // allow these methods
     allowedHeaders: ['Content-Type', 'Authorization'], // allow these headers
     credentials: true,
