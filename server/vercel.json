@@ -1,5 +1,14 @@
-{
-    "version" : 2,
-    "builds": [{"src": "./index.js", "use": "@vercel/node"}],
-    "routes": [{"src": "/(.*)", "dest": "/"}]
+   { "builds": [{"src": "./index.js", "use": "@vercel/node"}],
+    "routes": [{
+        "src": "/(.*)", 
+        "dest": "/$1",
+
+
+        "headers": {
+            "Access-Control-Allow-Origin": "https://study-notion-server-sgln.onrender.com",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type, Authorization"
+          }
+
+    }]
 }

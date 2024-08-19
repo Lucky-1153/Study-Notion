@@ -2,7 +2,7 @@ import {toast} from "react-hot-toast"
  
 import {apiConnector} from "../apiConnector"
 import {courseEndpoints} from '../apis'
-import { ApiError } from "../../../server/utils/ApiError"
+
 import { setCourseSectionData } from "../../slices/viewCourse.slice"
 
 const {
@@ -36,7 +36,7 @@ export const addCourseDetails = async( data, token) => {
         console.log("Create course api response.........", response)
         
         if(!response?.data?.success)
-            throw new ApiError("Could not add course details")
+            throw new Error("Could not add course details")
         console.log("everything is ok")
         toast.success("Course details added successfully")
         result = response?.data?.data
