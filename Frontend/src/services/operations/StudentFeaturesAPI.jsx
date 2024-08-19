@@ -110,11 +110,7 @@ async function verifyPayment(bodyData, token, navigate, dispatch) {
         })
 
         if(!response.data.success){
-<<<<<<< HEAD
-            throw new Error(response.data.message)
-=======
             throw new Error( response.data.message)
->>>>>>> 15dbf81dc81f69df271e9b5d4c1436699884b28e
         }
 
         toast.success("payment seccessfull, you are added to the course")
