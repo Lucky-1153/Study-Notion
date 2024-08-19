@@ -6,7 +6,7 @@
         "dest": "/$1",
         "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         "headers": {
-            "Access-Control-Allow-Origin": "https://study-notion-client-k6hmvrtn9-lucky-1153s-projects.vercel.app/",
+            "Access-Control-Allow-Origin": "https://study-notion-client-eight.vercel.app",
             "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
             "Access-Control-Allow-Headers": "Content-Type, Authorization"
           }
