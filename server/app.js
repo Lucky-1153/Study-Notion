@@ -26,7 +26,7 @@ app.use(cors(corsOptions));
 app.options('https://study-notion-client-nine.vercel.app', (req, res) => {
     
     console.log('Handling OPTIONS request for:', req.path);
-    res.header('Access-Control-Allow-Origin', 'https://study-notion-client-eight.vercel.app');
+    res.header('Access-Control-Allow-Origin', 'https://study-notion-client-nine.vercel.app');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.sendStatus(200); // Send 200 OK status
