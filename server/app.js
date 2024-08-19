@@ -64,7 +64,7 @@ app.use('/course', courseRoutes)
 app.get('/', (req, res) => {
     res.header('Access-Control-Allow-Origin', 'https://study-notion-frontend-2ib6.onrender.com');
     res.send('<div> this is default route <p> everything is okay </p> </div>') 
-    console.log('Response headers:', res.headers());
+    console.log('Response headers:',res.getHeaders());
 })
 
 
