@@ -15,6 +15,8 @@ const corsOptions = {
     origin: 'https://study-notion-client-eight.vercel.app', // allow requests from this origin
       methods: ['GET', 'POST', 'PUT', 'DELETE'], // allow these methods
       allowedHeaders: ['Content-Type', 'Authorization'], // allow these headers
+       credentials: true,
+
       optionsSuccessStatus: 200,
 }
 // Use CORS with the defined options
@@ -22,6 +24,8 @@ app.use(cors(corsOptions));
 
 // Handle OPTIONS requests for all routes (preflight)
 app.options('https://study-notion-client-eight.vercel.app', (req, res) => {
+    
+    console.log('Handling OPTIONS request for:', req.path);
     res.header('Access-Control-Allow-Origin', 'https://study-notion-client-eight.vercel.app');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
