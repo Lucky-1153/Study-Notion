@@ -16,7 +16,7 @@ let app = express()
 //     optionsSuccessStatus: 200,
 // }
 // Use CORS with the defined options
-app.use(cors);
+app.use(cors());
 
 app.use(express.json())
 // app.use(express.urlencoded())
