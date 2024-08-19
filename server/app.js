@@ -18,7 +18,7 @@ const corsOptions = {
 
    // allow requests from this origin
 
-      methods: ['GET', 'POST', 'PUT', 'DELETE','OPTIONS'], // allow these methods
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // allow these methods
       allowedHeaders: ['Content-Type', 'Authorization'], // allow these headers
        credentials: true,
 
@@ -36,7 +36,7 @@ app.options('*', (req, res) => {
 
     
 
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE','OPTIONS');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.sendStatus(200); // Send 200 OK status
 });
