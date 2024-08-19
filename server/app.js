@@ -14,7 +14,7 @@ app.use(cookieParser())
 
 const corsOptions = {
 
-    origin: process.env.CORS_ORIGIN, // allow requests from this origin
+    origin: "*", // allow requests from this origin
 
    // allow requests from this origin
 
@@ -28,17 +28,13 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Handle OPTIONS requests for all routes (preflight)
-app.options(process.env.CORS_ORIGIN, (req, res) => {
+// app.options("*", (req, res) => {
     
-
-    res.header('Access-Control-Allow-Origin', process.env.CORS_ORIGIN);
-
-    
-
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.sendStatus(200); // Send 200 OK status
-});
+//     res.header('Access-Control-Allow-Origin', "*");
+//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+//     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+//     res.sendStatus(200); // Send 200 OK status
+// });
 
 // app.use( cors({
 //     // origin: "https://study-notion-client-eight.vercel.app/",
@@ -94,12 +90,12 @@ app.use('/api/v1/course', courseRoutes)
 
 
 //============Default Route================================
-app.get('/', (req, res,next) => {
+app.get('/', (req, res) => {
     
 
          res.send('<div> this is default route <p> everything is okay </p> </div>')
     
-    next();
+    
    
 })
 
