@@ -42,7 +42,7 @@ app.use('/api/v1/course', courseRoutes)
 
 //============Default Route================================
 app.get('/', (req, res, next) => {
-     res.setHeader('Access-Control-Allow-Origin', 'https://study-notion-client-k6hmvrtn9-lucky-1153s-projects.vercel.app');
+     res.setHeader('Access-Control-Allow-Origin', 'https://study-notion-client-eight.vercel.app/');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
