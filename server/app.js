@@ -85,15 +85,15 @@ app.use('/api/v1/course', courseRoutes)
 
 
 //============Default Route================================
-// app.get('/', (req, res,next) => {
-//     res.header('Access-Control-Allow-Origin', '*');
-//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-//     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-//      res.send('<div> this is default route <p> everything is okay </p> </div>')
+app.get('/', (req, res,next) => {
     
-//     // next();
+     res
+         .status(200)
+         .send('<div> this is default route <p> everything is okay </p> </div>')
+    
+    next();
    
-// })
+})
 
 
 export {app}
