@@ -25,12 +25,14 @@ const corsOptions = {
       optionsSuccessStatus: 200,
 }
 // Use CORS with the defined options
-app.use(cors(corsOptions));
-
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://study-notion-frontend-2ib6.onrender.com');
-  next();
+app.use(cors(corsOptions), (req,res, next) => {
+      res.header('Access-Control-Allow-Origin', 'https://study-notion-frontend-2ib6.onrender.com');
 });
+
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', 'https://study-notion-frontend-2ib6.onrender.com');
+//   next();
+// });
 
 // Handle OPTIONS requests for all routes (preflight)
 app.options("*", (req, res) => {
