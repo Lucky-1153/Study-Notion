@@ -88,10 +88,10 @@ import courseRoutes from './routes/Course.route.js'
 
 
 //=============Mount Routes=============================
-app.use('/api/v1/auth', userRoutes)
-app.use('/api/v1/profile', profileRoutes)
-app.use('/api/v1/payment', paymentRoutes)
-app.use('/api/v1/course', courseRoutes)
+app.use('/auth', userRoutes)
+app.use('/profile', profileRoutes)
+app.use('/payment', paymentRoutes)
+app.use('/course', courseRoutes)
 
 
 //============Default Route================================
