@@ -7,19 +7,16 @@ import fileUpload from 'express-fileupload'
 //
 let app = express()
 
-const corsOptions = {
+// const corsOptions = {
 
-    origin: "https://study-notion-frontend-2ib6.onrender.com", 
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // allow these methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // allow these headers
-    credentials: true,
-    optionsSuccessStatus: 200,
-}
+//     origin: "https://study-notion-frontend-2ib6.onrender.com", 
+//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // allow these methods
+//     allowedHeaders: ['Content-Type', 'Authorization'], // allow these headers
+//     credentials: true,
+//     optionsSuccessStatus: 200,
+// }
 // Use CORS with the defined options
-app.use(cors(corsOptions, (req, res, next) => {
-  console.log('CORS middleware executed');
-  next();
-}));
+app.use(cors);
 
 app.use(express.json())
 // app.use(express.urlencoded())
