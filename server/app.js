@@ -12,7 +12,7 @@ app.use(express.static("public"))
 app.use(cookieParser())
 
 const corsOptions = {
-    origin: '*', // allow requests from this origin
+    origin: 'https://study-notion-server-sgln.onrender.com', // allow requests from this origin
       methods: ['GET', 'POST', 'PUT', 'DELETE','OPTIONS'], // allow these methods
       allowedHeaders: ['Content-Type', 'Authorization'], // allow these headers
        credentials: true,
@@ -26,7 +26,7 @@ app.use(cors(corsOptions));
 app.options('*', (req, res) => {
     
     console.log('Handling OPTIONS request for:', req.path);
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', 'https://study-notion-server-sgln.onrender.com');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE','OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.sendStatus(200); // Send 200 OK status
