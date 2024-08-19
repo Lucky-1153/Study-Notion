@@ -7,11 +7,6 @@ import fileUpload from 'express-fileupload'
 //
 let app = express()
 
-app.use(express.json())
-// app.use(express.urlencoded())
-
-app.use(cookieParser())
-
 const corsOptions = {
 
     origin: "https://study-notion-frontend-2ib6.onrender.com", 
@@ -21,7 +16,17 @@ const corsOptions = {
     optionsSuccessStatus: 200,
 }
 // Use CORS with the defined options
-app.use(cors(corsOptions));
+app.use(cors(corsOptions, (req, res, next) => {
+  console.log('CORS middleware executed');
+  next();
+}));
+
+app.use(express.json())
+// app.use(express.urlencoded())
+
+app.use(cookieParser())
+
+
 app.use(express.static("public"))
 app.use(
     fileUpload({
@@ -34,6 +39,11 @@ app.use((req, res, next) => {
   console.log('Request headers:', req.headers);
   console.log('Response headers:', res.headers);
   next();
+});
+
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).send('Error');
 });
 
 //===============Import Routes=========================
