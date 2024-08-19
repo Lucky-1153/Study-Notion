@@ -13,9 +13,13 @@ app.use(cookieParser())
 
 
 app.use( cors({
-    origin: "https://study-notion-client-eight.vercel.app/",
-    credentials: true,
-    optionsSuccessStatus: 200
+    // origin: "https://study-notion-client-eight.vercel.app/",
+    // credentials: true,
+    optionsSuccessStatus: 200,
+    origin: 'https://study-notion-client-eight.vercel.app', // allow requests from this origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // allow these methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // allow these headers
+  maxAge: 3600, // cache the response for 1 hour
 }))
 
 app.use(
