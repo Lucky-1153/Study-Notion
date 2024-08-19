@@ -5,7 +5,7 @@
 
 
         "headers": {
-            "Access-Control-Allow-Origin": "https://study-notion-server-sgln.onrender.com",
+            "Access-Control-Allow-Origin": "https://study-notion-frontend-2ib6.onrender.com",
             "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
             "Access-Control-Allow-Headers": "Content-Type, Authorization"
           }
