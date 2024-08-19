@@ -21,7 +21,12 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Handle OPTIONS requests for all routes (preflight)
-app.options('https://study-notion-client-eight.vercel.app', cors(corsOptions));
+app.options('https://study-notion-client-eight.vercel.app', (req, res) => {
+    res.header('Access-Control-Allow-Origin', 'https://study-notion-client-eight.vercel.app');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.sendStatus(200); // Send 200 OK status
+});
 
 // app.use( cors({
 //     // origin: "https://study-notion-client-eight.vercel.app/",
