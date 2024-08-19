@@ -30,6 +30,11 @@ app.use(
     })
 )
 
+app.use((req, res, next) => {
+  console.log('Request headers:', req.headers);
+  console.log('Response headers:', res.headers);
+  next();
+});
 
 //===============Import Routes=========================
 import userRoutes from "./routes/User.route.js"
