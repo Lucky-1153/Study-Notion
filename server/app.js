@@ -70,6 +70,7 @@ app.options('*', (req, res) => {
 //     //         "Access-Control-Allow-Headers": "Content-Type, Authorization"
 //     //       }
 // }));
+//
 
 app.use(
     fileUpload({
