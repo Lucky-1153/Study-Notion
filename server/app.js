@@ -51,11 +51,12 @@ app.use('/api/v1/course', courseRoutes)
 
 //============Default Route================================
 app.get('/', (req, res) => {
-    //  res.setHeader('Access-Control-Allow-Origin', 'https://study-notion-client-eight.vercel.app/');
-    // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    // res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    // res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Allow-Origin', 'https://study-notion-client-eight.vercel.app');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    
      res.send('<div> this is default route <p> everything is okay </p> </div>')
+    res.status(200).send();
     // next();
    
 })
