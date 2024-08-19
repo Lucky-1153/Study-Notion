@@ -15,17 +15,19 @@ app.use(cookieParser())
 app.use( cors({
     // origin: "https://study-notion-client-eight.vercel.app/",
     // credentials: true,
-      optionsSuccessStatus: 200,
+      
       origin: 'https://study-notion-client-eight.vercel.app', // allow requests from this origin
       methods: ['GET', 'POST', 'PUT', 'DELETE'], // allow these methods
       allowedHeaders: ['Content-Type', 'Authorization'], // allow these headers
-      maxAge: 3600, // cache the response for 1 hour
+      optionsSuccessStatus: 200,
     // "headers": {
     //         "Access-Control-Allow-Origin": "https://study-notion-client-eight.vercel.app",
     //         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
     //         "Access-Control-Allow-Headers": "Content-Type, Authorization"
     //       }
 }))
+
+app.options('https://study-notion-client-eight.vercel.app', cors(corsOptions));
 
 app.use(
     fileUpload({
@@ -50,13 +52,16 @@ app.use('/api/v1/course', courseRoutes)
 
 
 //============Default Route================================
-app.get('/', (req, res) => {
+app.get('/', (req, res,next) => {
     res.header('Access-Control-Allow-Origin', 'https://study-notion-client-eight.vercel.app');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(200);
+    }
+    next();
      res.send('<div> this is default route <p> everything is okay </p> </div>')
-    res.status(200).send();
+    
     // next();
    
 })
