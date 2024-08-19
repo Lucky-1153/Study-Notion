@@ -27,7 +27,20 @@ app.use( cors({
     //       }
 }))
 
-app.options('https://study-notion-client-eight.vercel.app', cors(corsOptions));
+app.options('https://study-notion-client-eight.vercel.app', cors({
+    // origin: "https://study-notion-client-eight.vercel.app/",
+    // credentials: true,
+      
+      origin: 'https://study-notion-client-eight.vercel.app', // allow requests from this origin
+      methods: ['GET', 'POST', 'PUT', 'DELETE'], // allow these methods
+      allowedHeaders: ['Content-Type', 'Authorization'], // allow these headers
+      optionsSuccessStatus: 200,
+    // "headers": {
+    //         "Access-Control-Allow-Origin": "https://study-notion-client-eight.vercel.app",
+    //         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+    //         "Access-Control-Allow-Headers": "Content-Type, Authorization"
+    //       }
+}));
 
 app.use(
     fileUpload({
