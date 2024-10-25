@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const axiosInstance = axios.create({
     // Adjust according to your backend URL
-    withCredentials: true, // This allows sending cookies with requests
+    // withCredentials: true, // This allows sending cookies with requests
 })
 
 export const apiConnector = (method, url, bodyData,headers, params) =>{
