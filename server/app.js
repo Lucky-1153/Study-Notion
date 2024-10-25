@@ -116,4 +116,14 @@ import paymentRoutes from './routes/Payments.route.js';
 import courseRoutes from './routes/Course.route.js';
 
 // Mount Routes
+app.use('/api/v1/auth', userRoutes);
+app.use('/api/v1/profile', profileRoutes);
+app.use('/api/v1/payment', paymentRoutes);
+app.use('/api/v1/course', courseRoutes);
 
+// Default Route
+app.get('/', (req, res) => {
+    res.send('<div>This is the default route <p>Everything is okay</p></div>');
+});
+
+export { app };
