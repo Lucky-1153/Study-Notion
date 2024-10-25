@@ -67,51 +67,53 @@
 
 // export {app}
 
-import express from 'express'
-import cors from 'cors'
-import cookieParser from 'cookie-parser'
-import fileUpload from 'express-fileupload'
+import express from 'express';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
+import fileUpload from 'express-fileupload';
+import helmet from 'helmet';
 
+// Initialize Express app
+const app = express();
 
-let app = express()
+// Apply security middleware using Helmet
+app.use(
+    helmet({
+        contentSecurityPolicy: {
+            directives: {
+                "default-src": ["'self'"],
+                "script-src": ["'self'", "'unsafe-inline'", "chrome-extension://*"],
+            },
+        },
+    })
+);
 
-app.use(express.json())
-// app.use(express.urlencoded())
-app.use(express.static("public"))
-app.use(cookieParser())
+// Middleware setup
+app.use(express.json());
+app.use(express.static("public"));
+app.use(cookieParser());
 
+// CORS configuration
+app.use(
+    cors({
+        origin: "*", // Adjust this for production (e.g., specific domain)
+        credentials: true,
+    })
+);
 
-app.use( cors({
-    path: "*",
-    credentials: true,
-}))
-
+// File upload configuration
 app.use(
     fileUpload({
         useTempFiles: true,
-        tempFileDir: '/tmp'
+        tempFileDir: '/tmp',
     })
-)
+);
 
+// Import Routes
+import userRoutes from "./routes/User.route.js";
+import profileRoutes from './routes/Profile.route.js';
+import paymentRoutes from './routes/Payments.route.js';
+import courseRoutes from './routes/Course.route.js';
 
-//===============Import Routes=========================
-import userRoutes from "./routes/User.route.js"
-import profileRoutes from './routes/Profile.route.js'
-import paymentRoutes from './routes/Payments.route.js'
-import courseRoutes from './routes/Course.route.js'
+// Mount Routes
 
-
-//=============Mount Routes=============================
-app.use('/api/v1/auth', userRoutes)
-app.use('/api/v1/profile', profileRoutes)
-app.use('/api/v1/payment', paymentRoutes)
-app.use('/api/v1/course', courseRoutes)
-
-
-//============Default Route================================
-app.get('/', (req, res) => {
-    res.send('<div> this is default route <p> everything is okay </p> </div>')
-})
-
-
-export {app}
