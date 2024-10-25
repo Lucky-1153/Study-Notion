@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const axiosInstance = axios.create({
-    baseURL: 'https://study-notion-server-sgln.onrender.com', // Adjust according to your backend URL
+    // Adjust according to your backend URL
     withCredentials: true, // This allows sending cookies with requests
 })
 
