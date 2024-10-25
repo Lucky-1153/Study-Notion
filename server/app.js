@@ -33,6 +33,24 @@ app.use(
 )
 
 app.use((req, res, next) => {
+    res.setHeader("Content-Security-Policy", "script-src 'self' 'unsafe-inline' 'unsafe-eval' chrome-extension://*;");
+    next();
+});
+
+import helmet from 'helmet';
+
+app.use(
+    helmet({
+        contentSecurityPolicy: {
+            directives: {
+                "script-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'", "chrome-extension://*"],
+            },
+        },
+    })
+);
+
+
+app.use((req, res, next) => {
   console.log('Request headers:', req.headers);
   console.log('Response headers:', res.headers);
   next();
