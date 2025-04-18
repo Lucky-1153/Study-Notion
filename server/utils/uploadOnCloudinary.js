@@ -11,13 +11,24 @@ cloudinary.config({
 
 const uploadOnCloudinary = async(file, folder, height, quality) => {
     try {
-        const options = { folder };
-        if (height) options.height = height;
-        if (quality) options.quality = quality;
+        const options = { folder,
+                        resource_type: "auto",
+                         transformation:[
+                             {
+                                 width: 300,
+                                 height: 200,
+                                 crop: "fill",
+                                 gravity: "auto",
+                                 quality: quality || "auto",
+                             },
+                         ],
+                        };
+        //if (height) options.height = height;
+        //if (quality) options.quality = quality;
 
         // options.resourse_type = 'auto';
-        options.resource_type = 'auto';
-        console.log("hloooo")
+        //options.resource_type = 'auto';
+        //console.log("hloooo")
         return await cloudinary.uploader.upload(file?.tempFilePath, options);
     } catch (error) {
         throw new ApiError(400, "error while uploading on cloudingary",error)
