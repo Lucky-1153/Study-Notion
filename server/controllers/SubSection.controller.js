@@ -15,10 +15,10 @@ const createSubSection = async(req, res) => {
         //validation
         if( [sectionId, title, timeDuration, description].some((field) => field === ""))
             throw new ApiError(401, 'all fields are required')
-    
+    console.log("wroking 1");
         //upload on cloudinary
         const uploadVideo = await uploadOnCloudinary(video, process.env.FOLDER_NAME)
-
+console.log("working 2");
         //create subsection
         const subSectionDetails = await SubSection.create({
             title,
@@ -26,7 +26,7 @@ const createSubSection = async(req, res) => {
             description,
             videoUrl: uploadVideo.url
         })
- 
+ console.log("working 3");
         //update subSection id in section
         const  updatedSection = await Section.findByIdAndUpdate(
             {_id : sectionId},
@@ -42,7 +42,7 @@ const createSubSection = async(req, res) => {
             }
         )
         //return opulate({path: "subSection"})res
-    
+    console.log("working 4");
         return res
         .status(200)
         .json(
